@@ -139,7 +139,30 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="SimulacijaRadaBanke.cpp" />
+    <ClCompile Include="Adresa.cpp" />
+    <ClCompile Include="Banka.cpp" />
+    <ClCompile Include="Kartice.cpp" />
+    <ClCompile Include="Krediti.cpp" />
+    <ClCompile Include="Kurs.cpp" />
+    <ClCompile Include="Osobe.cpp" />
+    <ClCompile Include="Racun.cpp" />
+    <ClCompile Include="SalterSmena.cpp" />
+    <ClCompile Include="Datum.cpp" />
+    <ClCompile Include="Transakcija.cpp" />
+    <ClCompile Include="TrezerSef.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Adresa.h" />
+    <ClInclude Include="Banka.h" />
+    <ClInclude Include="Datum.h" />
+    <ClInclude Include="Kartice.h" />
+    <ClInclude Include="Krediti.h" />
+    <ClInclude Include="Kurs.h" />
+    <ClInclude Include="Osobe.h" />
+    <ClInclude Include="Racun.h" />
+    <ClInclude Include="SalterSmena.h" />
+    <ClInclude Include="Transakcija.h" />
+    <ClInclude Include="TrezerSef.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

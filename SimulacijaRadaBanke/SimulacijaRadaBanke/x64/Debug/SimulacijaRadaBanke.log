@@ -1,0 +1,10 @@
+﻿  SimulacijaRadaBanke.cpp
+C:\Users\GG\Documents\GitHub\ZajednickiProjekat-Banka\SimulacijaRadaBanke\SimulacijaRadaBanke\SimulacijaRadaBanke.cpp(1215,15): error C2065: 'RadnikZaSalterom': undeclared identifier
+C:\Users\GG\Documents\GitHub\ZajednickiProjekat-Banka\SimulacijaRadaBanke\SimulacijaRadaBanke\SimulacijaRadaBanke.cpp(1215,10): error C2923: 'std::list': 'RadnikZaSalterom' is not a valid template type argument for parameter '_Ty'
+C:\Users\GG\Documents\GitHub\ZajednickiProjekat-Banka\SimulacijaRadaBanke\SimulacijaRadaBanke\SimulacijaRadaBanke.cpp(1215): message : see declaration of 'RadnikZaSalterom'
+C:\Users\GG\Documents\GitHub\ZajednickiProjekat-Banka\SimulacijaRadaBanke\SimulacijaRadaBanke\SimulacijaRadaBanke.cpp(1215,10): error C2976: 'std::list': too few template arguments
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\list(763): message : see declaration of 'std::list'
+C:\Users\GG\Documents\GitHub\ZajednickiProjekat-Banka\SimulacijaRadaBanke\SimulacijaRadaBanke\SimulacijaRadaBanke.cpp(1230,14): error C2011: 'Salter': 'class' type redefinition
+C:\Users\GG\Documents\GitHub\ZajednickiProjekat-Banka\SimulacijaRadaBanke\SimulacijaRadaBanke\SimulacijaRadaBanke.cpp(1207): message : see declaration of 'Salter'
+C:\Users\GG\Documents\GitHub\ZajednickiProjekat-Banka\SimulacijaRadaBanke\SimulacijaRadaBanke\SimulacijaRadaBanke.cpp(1237,13): error C2011: 'Smena': 'class' type redefinition
+C:\Users\GG\Documents\GitHub\ZajednickiProjekat-Banka\SimulacijaRadaBanke\SimulacijaRadaBanke\SimulacijaRadaBanke.cpp(1213): message : see declaration of 'Smena'

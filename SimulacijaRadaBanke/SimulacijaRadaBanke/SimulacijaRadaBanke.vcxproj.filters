@@ -15,8 +15,73 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="SimulacijaRadaBanke.cpp">
+    <ClCompile Include="Datum.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Adresa.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Kurs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Transakcija.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Racun.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Krediti.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Kartice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TrezerSef.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Osobe.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SalterSmena.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Banka.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Datum.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Adresa.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Kurs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Transakcija.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Racun.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Krediti.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Kartice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TrezerSef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Osobe.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SalterSmena.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Banka.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
