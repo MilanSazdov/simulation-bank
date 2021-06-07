@@ -3,6 +3,80 @@
 #include "Kartice.h"
 #include "Kurs.h"
 
+TipKartice Kartica::getTipKartice()const {
+    return tip_kartice;
+}
+
+int Kartica::getBrojKartice()const {
+    return broj_kartice;
+}
+
+Datum Kartica::getDatumIzdavanja()const {
+    return datum_izdavanja;
+}
+
+Datum Kartica::getDatumIsteka()const {
+    return datum_isteka;
+}
+
+int Kartica::getCV()const {
+    return CV;
+}
+
+void Kartica::setTipKartice(TipKartice tip_kartice_) {
+    tip_kartice = tip_kartice_;
+}
+
+void Kartica::setBrojKartice(int broj_kartice_) {
+    broj_kartice = broj_kartice_;
+}
+
+void Kartica::setDatumIzdavanja(Datum datum_izdavanja_) {
+    datum_izdavanja = datum_izdavanja_;
+}
+
+void Kartica::setDatumIsteka(Datum datum_isteka_) {
+    datum_isteka = datum_isteka;
+}
+
+void Kartica::setCV(int CV_) {
+    CV = CV_;
+}
+
+DebitnaKartica::DebitnaKartica() {
+
+    tip_kartice = SUPER;
+    broj_kartice = 1;
+    datum_izdavanja.setDan(1);
+    datum_izdavanja.setMesec(1);
+    datum_izdavanja.setGodina(2021);
+    datum_isteka.setDan(1);
+    datum_isteka.setMesec(1);
+    datum_isteka.setGodina(2031);
+    CV = 1;
+    DinarskiRacun(*racun);
+}
+
+DebitnaKartica::DebitnaKartica(TipKartice tip_kartice_, int broj_kartice_, Datum datum_izdavanja_, Datum datum_isteka_, int CV_, DinarskiRacun* racun_) {
+
+    tip_kartice = tip_kartice_;
+    broj_kartice = broj_kartice_;
+    datum_izdavanja = datum_izdavanja_;
+    datum_isteka = datum_isteka_;
+    CV = CV_;
+    *racun = *racun_;
+}
+
+DebitnaKartica::DebitnaKartica(const DebitnaKartica& debitna_kartica) {
+
+    tip_kartice = debitna_kartica.tip_kartice;
+    broj_kartice = debitna_kartica.broj_kartice;
+    datum_izdavanja = debitna_kartica.datum_izdavanja;
+    datum_isteka = debitna_kartica.datum_isteka;
+    CV = debitna_kartica.CV;
+    racun = debitna_kartica.racun; // Da li treba zvezdica, zato sto je pokazivac ?
+}
+
 void DebitnaKartica::KupiNesto() {
 
     double pom;
@@ -35,6 +109,7 @@ void DebitnaKartica::KupiNesto() {
 
     racun->setStanjeNaRacunuRSD(racun->getStanjeNaRacunuRSD() - pom);
 }
+
 
 void KreditnaKartica::KupiNesto() {
 
