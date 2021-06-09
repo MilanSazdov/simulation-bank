@@ -3,6 +3,7 @@
 #include "Kurs.h"
 
 int main(){
-	std::cout << kurs;
+
+	std::cout << "Novi Svijet" << std::endl;
 	return 0;
 }
