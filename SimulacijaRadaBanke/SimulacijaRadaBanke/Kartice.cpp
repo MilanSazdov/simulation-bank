@@ -3,7 +3,6 @@
 #include "Kartice.h"
 #include "Kurs.h"
 
-
 TipKartice Kartica::getTipKartice()const {
     return tip_kartice;
 }
@@ -75,7 +74,17 @@ DebitnaKartica::DebitnaKartica(const DebitnaKartica& debitna_kartica) {
     datum_izdavanja = debitna_kartica.datum_izdavanja;
     datum_isteka = debitna_kartica.datum_isteka;
     CV = debitna_kartica.CV;
-    racun = debitna_kartica.racun; // Da li treba zvezdica, zato sto je pokazivac ?
+    racun = debitna_kartica.racun;
+}
+
+DinarskiRacun* DebitnaKartica::getRacun()const {
+    
+    return racun;
+}
+
+void DebitnaKartica::setRacun(DinarskiRacun* racun_) {
+
+    racun = racun_;
 }
 
 void DebitnaKartica::KupiNesto() {
@@ -143,6 +152,14 @@ KreditnaKartica::KreditnaKartica(const KreditnaKartica& kreditna_kartica) {
     datum_isteka = kreditna_kartica.datum_isteka;
     CV = kreditna_kartica.CV;
     racun = kreditna_kartica.racun;
+}
+
+DevizniRacun* KreditnaKartica::getRacunDevizni()const {
+    return racun;
+}
+
+void KreditnaKartica::setRacun(DevizniRacun* racun_) {
+    racun = racun_;
 }
 
 

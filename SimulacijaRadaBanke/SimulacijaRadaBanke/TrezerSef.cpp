@@ -146,22 +146,3 @@ void Sef::setMesecnoIznajmljivanje(double mesecno_iznajmljivanje_) {
 void Sef::setPlacenoMesecnoIznajmljivanje(bool placeno_mesecno_iznajmljivanje_) {
     placeno_mesecno_iznajmljivanje = placeno_mesecno_iznajmljivanje_;
 }
-
-std::ostream& operator<<(std::ostream& os, const Sef& sef) {
-
-    os << "*** SEF ***" << std::endl;
-    os << "Broj sefa je : " << sef.broj_sefa << std::endl;
-    os << "Tip valute u sefu je : " << sef.valuta << std::endl;
-    os << "Kolicina novca u sefu je : " << sef.kolicina_novca << std::endl;
-    os << "Mesecno iznajmljivanje je : " << sef.mesecno_iznajmljivanje << std::endl;
-    os << "Da li je placeno mesecno iznajmljivanje ? : ";
-    if (sef.placeno_mesecno_iznajmljivanje == true) {
-        os << "DA" << std::endl;
-    }
-    else
-    {
-        os << "NE" << std::endl;
-    }
-
-    return os;
-}

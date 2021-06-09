@@ -3,6 +3,56 @@
 #include "Krediti.h"
 #include "Racun.h"
 
+
+//Geteri 
+TipKredita Kredit::getTipKredita()const {
+    return tip_kredita;
+}
+
+double Kredit::getIznosKredita()const {
+    return iznos_kredita;
+}
+Datum Kredit::getRokIsplate()const {
+    return rok_isplate;
+}
+double Kredit::getMesecnaRata()const {
+    return mesecna_rata;
+}
+double Kredit::getKamata()const {
+    return kamata;
+}
+bool Kredit::getPlacenaRataZaMesec()const {
+    return placena_rata_za_mesec;
+}
+double Kredit::getPlacenoDoSada()const {
+    return placeno_do_sada;
+}
+
+//Seteri
+
+void Kredit::setTipKredita(TipKredita tip_kredita_) {
+    tip_kredita = tip_kredita_;
+}
+void Kredit::setIznosKredita(double iznos_kredita_) {
+    iznos_kredita = iznos_kredita_;
+}
+void Kredit::setRokIsplate(Datum rok_isplate_) {
+    rok_isplate = rok_isplate_;
+}
+void Kredit::setMesecnaRata(double mesecna_rata_) {
+    mesecna_rata = mesecna_rata_;
+}
+void Kredit::setKamata(double kamata_) {
+    kamata = kamata_;
+}
+void Kredit::setPlacenaRataZaMesec(bool placena_rata_za_mesec_) {
+    placena_rata_za_mesec = placena_rata_za_mesec_;
+
+}
+void Kredit::setPlacenoDoSada(double placeno_do_sada_) {
+    placeno_do_sada = placeno_do_sada_;
+}
+
 void Kredit::PlatiRatu(DinarskiRacun& racun) {
 
     if (placena_rata_za_mesec == true) {
@@ -61,15 +111,6 @@ std::ostream& operator<<(std::ostream& os, const Kredit& kredit) {
     os << "Ukupan iznos kredita : " << kredit.iznos_kredita << std::endl;
     os << "Mesecna rata kredita : " << kredit.mesecna_rata << std::endl;
     os << "Rok isplate kredita : " << std::endl << kredit.rok_isplate << std::endl;
-    os << "Zirant : ";
-    if (kredit.zirant) {
-        os << "DA" << std::endl;
-        // std::cout << zirant_osoba << std::endl;
-    }
-    else
-    {
-        os << "NE" << std::endl;
-    }
     os << "Da li je placena rata za tekuci mesec : ";
     if (kredit.placena_rata_za_mesec) {
         os << "DA" << std::endl;
