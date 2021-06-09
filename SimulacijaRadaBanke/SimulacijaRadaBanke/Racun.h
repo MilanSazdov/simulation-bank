@@ -14,8 +14,7 @@ protected:
     bool prekoracenje;
     std::list<int> id_transakcija;
     double naknada_za_mesecno_odrzavanje_racuna;
-    double naknada_za_podizanje_gotovine_na_bankomatima;
-    double max_depozit;
+    double max_skidanja;
     double max_prekoracenja;
     double max_dodavanja;
 
@@ -33,10 +32,13 @@ class DinarskiRacun : public Racun {
 
 private:
     double stanje_na_racunu_RSD;
-    std::list<int> id_transakcija;
 
 public:
     static int id;
+
+    DinarskiRacun();
+    DinarskiRacun(Datum datum_izdavanja_racuna,bool prekoracenje_, std::list<int> id_transakcija_, double naknada_za_mesecno_odrzavanje_, double max_depozit_, double max_prekoracenje_, double max_dodavanja_, double stanje);
+    DinarskiRacun(const DinarskiRacun& racun);
 
     double getStanjeNaRacunuRSD()const;
     void setStanjeNaRacunuRSD(double stanje_na_racunu_RSDD);
@@ -48,11 +50,13 @@ public:
 class DevizniRacun : public Racun {
 
     double stanje_na_racunu_EVRO;
-    std::list<int> lista_transakcija;
-
 
 public:
     static int id;
+
+    DevizniRacun();
+    DevizniRacun(Datum datum_izdavanja_racuna, bool prekoracenje_, std::list<int> id_transakcija_, double naknada_za_mesecno_odrzavanje_, double max_depozit_, double max_prekoracenje_, double max_dodavanja_, double stanje);
+    DevizniRacun(const DevizniRacun& racun);
 
     double getStanjeNaRacunuEVRO()const;
     void setStanjeNaRacunuEVRO(double stanje_na_racunu_EVRO_);

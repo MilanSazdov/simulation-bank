@@ -27,8 +27,7 @@ std::ostream& operator<<(std::ostream& os, const Racun& racun) {
     }
 
     os << "Naknada za mesecno odrzavanje : " << racun.naknada_za_mesecno_odrzavanje_racuna << std::endl;
-    os << "Naknada za podizanje gotovine na bankomatima : " << racun.naknada_za_podizanje_gotovine_na_bankomatima << std::endl;
-    os << "MAX Depozit : " << racun.max_depozit << std::endl;
+    os << "MAX Depozit : " << racun.max_skidanja << std::endl;
     os << "Lista transakcija : " << std::endl;
     // os << racun.lista_tranzakcija << std::endl;
     os << "MAX novca za dodavanje : " << racun.max_dodavanja << std::endl;
@@ -37,6 +36,48 @@ std::ostream& operator<<(std::ostream& os, const Racun& racun) {
 }
 
 //DINARSKI RACUN
+
+DinarskiRacun::DinarskiRacun() {
+    
+    id++;
+    datum_nastanka_racuna = Datum(datum);
+    broj_racuna = id;
+    prekoracenje = false;
+    naknada_za_mesecno_odrzavanje_racuna = 2000;
+    max_skidanja = 5000;
+    max_prekoracenja = 0;
+    max_dodavanja = 5000;
+    stanje_na_racunu_RSD = 0;
+}
+
+DinarskiRacun::DinarskiRacun(Datum datum_izdavanja_racuna,  bool prekoracenje_, std::list<int> id_transakcija_, double naknada_za_mesecno_odrzavanje_, double max_depozit_, double max_prekoracenje_, double max_dodavanja_, double stanje) {
+
+    id++;
+    datum_nastanka_racuna = datum_izdavanja_racuna;
+    broj_racuna = id;
+    prekoracenje = prekoracenje_;
+    id_transakcija = id_transakcija_;
+    naknada_za_mesecno_odrzavanje_racuna = naknada_za_mesecno_odrzavanje_;
+    max_skidanja = max_depozit_;
+    max_prekoracenja = max_prekoracenje_;
+    max_dodavanja = max_dodavanja_;
+    stanje_na_racunu_RSD = stanje;
+}
+
+DinarskiRacun::DinarskiRacun(const DinarskiRacun& racun) {
+
+    id++;
+    datum_nastanka_racuna = racun.datum_nastanka_racuna;
+    broj_racuna = id;
+    prekoracenje = racun.prekoracenje;
+    id_transakcija = racun.id_transakcija;
+    naknada_za_mesecno_odrzavanje_racuna = racun.naknada_za_mesecno_odrzavanje_racuna;
+    max_skidanja = racun.max_skidanja;
+    max_prekoracenja = racun.max_prekoracenja;
+    max_dodavanja = racun.max_dodavanja;
+    stanje_na_racunu_RSD = racun.stanje_na_racunu_RSD;
+}
+
 double DinarskiRacun::getStanjeNaRacunuRSD()const {
     return stanje_na_racunu_RSD;
 }
@@ -94,7 +135,7 @@ void DinarskiRacun::Withdraw(double* kes) {
     {
         std::cout << "Koliko para hocete da skinete sa racuna : " << std::endl;
         std::cin >> novac;
-        if (novac <= 0) {
+        if (novac <= 0 || novac > max_skidanja) {
             std::cout << "Uneli ste neodgovarajuci broj !!!" << std::endl;
             continue;
         }
@@ -123,6 +164,47 @@ std::ostream& operator<<(std::ostream& os, const DinarskiRacun& racun) {
 int DinarskiRacun::id = -1;
 
 //DEVIZNI RACUN
+
+DevizniRacun::DevizniRacun() {
+    id++;
+    datum_nastanka_racuna = Datum(datum);
+    broj_racuna = id;
+    prekoracenje = false;
+    naknada_za_mesecno_odrzavanje_racuna = 2000;
+    max_skidanja = 5000;
+    max_prekoracenja = 0;
+    max_dodavanja = 5000;
+    stanje_na_racunu_EVRO = 0;
+}
+
+DevizniRacun::DevizniRacun(Datum datum_izdavanja_racuna, bool prekoracenje_, std::list<int> id_transakcija_, double naknada_za_mesecno_odrzavanje_, double max_depozit_, double max_prekoracenje_, double max_dodavanja_, double stanje) {
+
+    id++;
+    datum_nastanka_racuna = datum_izdavanja_racuna;
+    broj_racuna = id;
+    prekoracenje = prekoracenje_;
+    id_transakcija = id_transakcija_;
+    naknada_za_mesecno_odrzavanje_racuna = naknada_za_mesecno_odrzavanje_;
+    max_skidanja = max_depozit_;
+    max_prekoracenja = max_prekoracenje_;
+    max_dodavanja = max_dodavanja_;
+    stanje_na_racunu_EVRO = stanje;
+}
+
+DevizniRacun::DevizniRacun(const DevizniRacun& racun) {
+
+    id++;
+    datum_nastanka_racuna = racun.datum_nastanka_racuna;
+    broj_racuna = id;
+    prekoracenje = racun.prekoracenje;
+    id_transakcija = racun.id_transakcija;
+    naknada_za_mesecno_odrzavanje_racuna = racun.naknada_za_mesecno_odrzavanje_racuna;
+    max_skidanja = racun.max_skidanja;
+    max_prekoracenja = racun.max_prekoracenja;
+    max_dodavanja = racun.max_dodavanja;
+    stanje_na_racunu_EVRO = racun.stanje_na_racunu_EVRO;
+}
+
 double DevizniRacun::getStanjeNaRacunuEVRO()const {
     return stanje_na_racunu_EVRO;
 }
