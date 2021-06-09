@@ -5,11 +5,12 @@
 #include "Datum.h"
 
 Filijala::Filijala() {
-    
+
     adresa = Adresa();
     salter = Salter();
     smena = Smena();
     bankomat = Bankomat();
+    trezor = Trezor();
 }
 
 Filijala::Filijala(Adresa adresa_, Salter salter_, Smena smena_, Bankomat bankomat_, Trezor trezor_) {
@@ -30,17 +31,17 @@ Filijala::Filijala(const Filijala& filijala) {
     trezor = Trezor(filijala.trezor);
 }
 
-Adresa Filijala::getAdresa(){
-    return adresa;
+Adresa* Filijala::getAdresa() {
+    return &adresa;
 }
-Salter* Filijala::getSalter(){
+Salter* Filijala::getSalter() {
     return &salter;
 }
-Bankomat* Filijala::getBankomat(){
+Bankomat* Filijala::getBankomat() {
     return &bankomat;
 }
 
-Smena* Filijala::getSmena(){
+Smena* Filijala::getSmena() {
     return &smena;
 }
 

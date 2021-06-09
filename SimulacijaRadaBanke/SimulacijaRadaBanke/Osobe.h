@@ -8,11 +8,13 @@
 #include "Krediti.h"
 #include "Kartice.h"
 #include "TrezerSef.h"
+#include "Banka.h"
+#include "SalterSmena.h"
 
 class Osoba {
 
 protected:
-
+    double mesecna_plata;
     Datum datum_rodjenja;
     Adresa adresa_stanovanja;
     std::string ime;
@@ -27,11 +29,11 @@ public:
     std::string getPrezime()const;
     int getBrojGodina()const;
 
-    void setDatumRodjenja(Datum datum_rodjenja_);
-    void setAdresaStanovanja(Adresa adresa_stanovanja_);
-    void setIme(std::string ime_);
-    void setPrezime(std::string prezime_);
-    void setBrojGodina(int broj_godina_);
+    void setDatumRodjenja(Datum datumrodjenja);
+    void setAdresaStanovanja(Adresa adresastanovanja);
+    void setIme(std::string ime);
+    void setPrezime(std::string prezime);
+    void setBrojGodina(int brojgodina);
 
     friend std::ostream& operator<<(std::ostream& os, const Osoba& osoba);
 };
@@ -43,29 +45,59 @@ private:
     bool u_filijali;
     bool na_salteru;
     bool u_cekaonici;
-    bool za_salterom;
     int broj_u_redu;
+    Banka* banka;
     DevizniRacun* devizni_racun;
     DinarskiRacun* dinarski_racun;
     DebitnaKartica* debitna_kartica;
     KreditnaKartica* kreditna_kartica;
-    std::list<Kredit>::iterator lista_kredita;
-    std::list<Sef>::iterator lista_sefova;
+    Filijala* filijala;
+    Salter* salter;
+    Sef* sef;
     //Nalog
     //OrocenaStednja
     //NeOrocenaStednja
     //ZahtevZaKredit
 public:
+    static int ID;
     void OtvoriRacun();
     void Deposit();
     void Withdraw();
     void KupiNesto();
     void IzradiKarticu();
+    void ZatvoriRacun();
+    void ZatvoriKarticu();
+    void NapraviTransakciju();
+    void NapraviTransakciju(DinarskiRacun* racun);
+    void NapraviTransakciju(DevizniRacun* racun);
+    void UzmiNovacIzSefa();
+    void PlatiRatuSefa();
+    void IznajmiSef();
+    void NapustiSef();
+    void IdiUFilijalu();
+    void IdiNaSalter();
+    void IzadjiIzFilijale();
+    void IzadjiSaSaltera();
+    void IsplatiPlatu();
 };
 
 class RadnikZaSalterom : public Osoba {
 
     bool na_pauzi;
-    float plata;//u dinarima
     int broj_saltera_za_kojim_radi;
 };
+
+class VlasnikBanke :public Osoba {
+private:
+    double budzet;
+    Banka* banka;
+public:
+    void IzgradiFilijalu();
+    void MenjajMesec();
+    void OtkljucajTrezor();
+    void ZakljucajTrezor();
+    void DodajPareUBankomat();
+    void KupiVozilo();
+    void KupiTehniku();
+};
+extern std::list<Korisnik> lista_korisnika;

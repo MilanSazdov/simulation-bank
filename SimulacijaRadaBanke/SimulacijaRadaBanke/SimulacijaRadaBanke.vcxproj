@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="Adresa.cpp" />
     <ClCompile Include="Banka.cpp" />
+    <ClCompile Include="Bankomat.cpp" />
     <ClCompile Include="Kartice.cpp" />
     <ClCompile Include="Krediti.cpp" />
     <ClCompile Include="Kurs.cpp" />
@@ -155,6 +156,7 @@
   <ItemGroup>
     <ClInclude Include="Adresa.h" />
     <ClInclude Include="Banka.h" />
+    <ClInclude Include="Bankomat.h" />
     <ClInclude Include="Datum.h" />
     <ClInclude Include="Kartice.h" />
     <ClInclude Include="Krediti.h" />

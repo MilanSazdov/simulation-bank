@@ -1,2 +1,27 @@
-﻿  main.cpp
-  SimulacijaRadaBanke.vcxproj -> C:\Users\Milan\Documents\GitHub\ZajednickiProjekat-Banka\SimulacijaRadaBanke\x64\Debug\SimulacijaRadaBanke.exe
+﻿  Adresa.cpp
+  Banka.cpp
+C:\Users\Milan\Documents\GitHub\ZajednickiProjekat-Banka\SimulacijaRadaBanke\SimulacijaRadaBanke\Banka.cpp(15,6): warning C4101: 'uspeh_transakcije_': unreferenced local variable
+C:\Users\Milan\Documents\GitHub\ZajednickiProjekat-Banka\SimulacijaRadaBanke\SimulacijaRadaBanke\Banka.cpp(13,5): warning C4101: 'broj_kartice_': unreferenced local variable
+  Datum.cpp
+  Kartice.cpp
+C:\Users\Milan\Documents\GitHub\ZajednickiProjekat-Banka\SimulacijaRadaBanke\SimulacijaRadaBanke\Kartice.cpp(58,20): warning C4101: 'racun': unreferenced local variable
+  Krediti.cpp
+  Osobe.cpp
+  Racun.cpp
+C:\Users\Milan\Documents\GitHub\ZajednickiProjekat-Banka\SimulacijaRadaBanke\SimulacijaRadaBanke\Racun.cpp(178,5): error C2065: 'stanje_na_racunu_RSD': undeclared identifier
+C:\Users\Milan\Documents\GitHub\ZajednickiProjekat-Banka\SimulacijaRadaBanke\SimulacijaRadaBanke\Racun.cpp(181,20): error C2146: syntax error: missing ')' before identifier 'datum_izdavanja_racuna'
+C:\Users\Milan\Documents\GitHub\ZajednickiProjekat-Banka\SimulacijaRadaBanke\SimulacijaRadaBanke\Racun.cpp(181,14): error C2259: 'DevizniRacun': cannot instantiate abstract class
+C:\Users\Milan\Documents\GitHub\ZajednickiProjekat-Banka\SimulacijaRadaBanke\SimulacijaRadaBanke\Racun.h(51): message : see declaration of 'DevizniRacun'
+C:\Users\Milan\Documents\GitHub\ZajednickiProjekat-Banka\SimulacijaRadaBanke\SimulacijaRadaBanke\Racun.cpp(181,14): message : due to following members:
+C:\Users\Milan\Documents\GitHub\ZajednickiProjekat-Banka\SimulacijaRadaBanke\SimulacijaRadaBanke\Racun.cpp(181,14): message : 'void Racun::NapraviTransakciju(void)': is abstract
+C:\Users\Milan\Documents\GitHub\ZajednickiProjekat-Banka\SimulacijaRadaBanke\SimulacijaRadaBanke\Racun.h(24): message : see declaration of 'Racun::NapraviTransakciju'
+C:\Users\Milan\Documents\GitHub\ZajednickiProjekat-Banka\SimulacijaRadaBanke\SimulacijaRadaBanke\Racun.cpp(181,20): error C2146: syntax error: missing ';' before identifier 'datum_izdavanja_racuna'
+C:\Users\Milan\Documents\GitHub\ZajednickiProjekat-Banka\SimulacijaRadaBanke\SimulacijaRadaBanke\Racun.cpp(181,42): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Milan\Documents\GitHub\ZajednickiProjekat-Banka\SimulacijaRadaBanke\SimulacijaRadaBanke\Racun.cpp(181,44): error C2062: type 'bool' unexpected
+C:\Users\Milan\Documents\GitHub\ZajednickiProjekat-Banka\SimulacijaRadaBanke\SimulacijaRadaBanke\Racun.cpp(181,218): error C2059: syntax error: ')'
+C:\Users\Milan\Documents\GitHub\ZajednickiProjekat-Banka\SimulacijaRadaBanke\SimulacijaRadaBanke\Racun.cpp(182,14): error C2059: syntax error: 'const'
+  SalterSmena.cpp
+  Transakcija.cpp
+  TrezerSef.cpp
+  main.cpp
+  Generating Code...

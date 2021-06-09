@@ -24,17 +24,17 @@ public:
     Filijala(Adresa adresa_, Salter salter_, Smena smena_, Bankomat bankomat_, Trezor trezor_);
     Filijala(const Filijala& filijala);
 
-    Adresa getAdresa();
+    Adresa* getAdresa();
     Salter* getSalter();
     Smena* getSmena();
     Bankomat* getBankomat();
     Trezor* getTrezor();
 
-    void setAdresa(Adresa adresa_);
-    void setSalter(Salter salter_);
-    void setSmena(Smena smena_);
-    void setBankomat(Bankomat bankomat_);
-    void setTrezor(Trezor trezor_);
+    void setAdresa(Adresa adresa);
+    void setSalter(Salter salter);
+    void setSmena(Smena smena);
+    void setBankomat(Bankomat bankomat);
+    void setTrezor(Trezor trezor);
 
     friend std::ostream& operator<<(std::ostream& os, const Filijala& filijala);
 
@@ -49,8 +49,8 @@ public:
     std::list<DinarskiRacun> lista_din_racuna;
     std::list<Transakcija> lista_transakcija;
     std::list<Filijala> lista_filijala;
-    DevizniRacun* NadjiPoBrojuDev(int broj_racuna);
+    DevizniRacun* NadjiPoBrojuDev(int brojracuna);
     DinarskiRacun* NadjiPoBrojuDin(int brojracuna);
     void NapraviTransakciju(DevizniRacun* racun1, DevizniRacun* racun2, std::string Primalac, std::string Posiljalac);
-    void NapraviTransakciju(DinarskiRacun* racun1, DinarskiRacun* racun2, std::string Primalac, std::string Posiljalac_);
+    void NapraviTransakciju(DinarskiRacun* racun1, DinarskiRacun* racun2, std::string Primalac, std::string Posiljalac);
 };
