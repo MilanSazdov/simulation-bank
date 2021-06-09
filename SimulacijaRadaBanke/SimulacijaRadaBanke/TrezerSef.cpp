@@ -146,3 +146,64 @@ void Sef::setMesecnoIznajmljivanje(double mesecno_iznajmljivanje_) {
 void Sef::setPlacenoMesecnoIznajmljivanje(bool placeno_mesecno_iznajmljivanje_) {
     placeno_mesecno_iznajmljivanje = placeno_mesecno_iznajmljivanje_;
 }
+
+Trezor::Trezor() {
+
+    sifra = 1;
+    otkljucan = false;
+}
+
+Trezor::Trezor(std::list<Sef> lista_sefova_, int sifra_, bool otkljucan_) {
+    
+    lista_sefova = lista_sefova_;
+    sifra = sifra_;
+    otkljucan = otkljucan_;
+}
+
+Trezor::Trezor(const Trezor& trezor) {
+
+    lista_sefova = trezor.lista_sefova;
+    sifra = trezor.sifra;
+    otkljucan = trezor.otkljucan;
+}
+
+std::list<Sef> Trezor::getListaSefova()const {
+    return lista_sefova;
+}
+int Trezor::getSifra()const {
+    return sifra;
+}
+bool Trezor::getOtkljucan()const {
+    return otkljucan;
+}
+
+void Trezor::setListaSefova(std::list<Sef> lista_sefova_) {
+    lista_sefova = lista_sefova_;
+}
+void Trezor::setSifra(int sifra_) {
+    sifra = sifra_;
+}
+void Trezor::setOtkljucan(bool otkljucan_) {
+    otkljucan = otkljucan_;
+}
+
+std::ostream& operator<<(std::ostream& os, const Trezor& trezor) {
+    os << "Lista sefova : " << std::endl;
+    std::list<Sef>::const_iterator it = trezor.lista_sefova.begin();
+    
+    for (; it != trezor.lista_sefova.end(); it++) {
+        os << *it << std::endl;
+    }
+
+    os << "Sifra je : " << trezor.sifra << std::endl;
+    os << "Otkljucan : ";
+    if (trezor.otkljucan) {
+        os << "DA" << std::endl;
+    }
+    else
+    {
+        os << "NE" << std::endl;
+    }
+
+    return os;
+}

@@ -27,4 +27,9 @@ public:
     void setBroj(int broj_);
     void setDrzava(std::string drzava);
     void setMesto(std::string mesto);
+
+    void UnesiAdresu();
+
+    friend std::ostream& operator<<(std::ostream& os, const Adresa& adresa);
+    friend bool operator==(const Adresa& adresa1, const Adresa& adresa2);
 };

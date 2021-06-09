@@ -75,8 +75,19 @@ private:
     bool otkljucan;
 
 public:
-
-    static double ukupno_novca;
     
+    Trezor();
+    Trezor(std::list<Sef> lista_sefova_, int sifra_, bool otkljucan_);
+    Trezor(const Trezor& trezor);
+
+    std::list<Sef> getListaSefova()const;
+    int getSifra()const;
+    bool getOtkljucan()const;
+
+    void setListaSefova(std::list<Sef> lista_sefova_);
+    void setSifra(int sifra_);
+    void setOtkljucan(bool otkljucan_);
+
+    friend std::ostream& operator<<(std::ostream& os, const Trezor& trezor);
     
 };

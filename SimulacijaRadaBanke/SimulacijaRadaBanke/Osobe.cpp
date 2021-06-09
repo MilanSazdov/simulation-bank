@@ -2,6 +2,52 @@
 #include <list>
 #include "Osobe.h"
 
+Datum Osoba::getDatumRodjenja() const{
+
+    return datum_rodjenja;
+}
+Adresa Osoba::getAdresaStanovanja()const {
+    return adresa_stanovanja;
+}
+std::string Osoba::getIme()const {
+    return ime;
+}
+std::string Osoba::getPrezime()const {
+    return prezime;
+}
+int Osoba::getBrojGodina()const {
+    return broj_godina;
+}
+
+void Osoba::setDatumRodjenja(Datum datum_rodjenja_) {
+    datum_rodjenja = Datum(datum_rodjenja_);
+}
+void Osoba::setAdresaStanovanja(Adresa adresa_stanovanja_) {
+    adresa_stanovanja = Adresa(adresa_stanovanja_);
+}
+void Osoba::setIme(std::string ime_) {
+    ime = ime_;
+}
+void Osoba::setPrezime(std::string prezime_) {
+    prezime = prezime_;
+}
+void Osoba::setBrojGodina(int broj_godina_) {
+    broj_godina = broj_godina_;
+}
+
+std::ostream& operator<<(std::ostream& os, const Osoba& osoba) {
+
+    os << "Datum rodjenja je : " << std::endl;
+    os << osoba.datum_rodjenja << std::endl;
+    os << "Adresa je : " << std::endl;
+    os << osoba.adresa_stanovanja << std::endl;
+    os << "Ime je : " << osoba.ime << std::endl;
+    os << "Prezime je : " << osoba.prezime << std::endl;
+    os << "Broj godina : " << osoba.broj_godina << std::endl;
+
+    return os;
+}
+
 void Korisnik::Deposit() {
 if (na_salteru == 0) {
     std::cout << "Niste na salteru!\n";

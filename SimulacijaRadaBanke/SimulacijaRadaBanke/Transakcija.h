@@ -46,4 +46,18 @@ public:
     Transakcija();
     Transakcija(TipValute tip_valute_, double kolicina_novca_, int broj_racuna_primalac_, int broj_racuna_posiljalac, Datum datum_transakcije_, std::string Primalac_, std::string Posiljalac_, double provizija_);
     Transakcija(const Transakcija& transakcija);
+
+    friend std::ostream& operator<<(std::ostream& os, const Transakcija& transakcija) {
+
+        os << "Tip valute je : " << transakcija.tip_valute << std::endl;
+        os << "Kolicna novca je : " << transakcija.kolicina_novca << std::endl;
+        os << "Broj racuna posiljalaca : " << transakcija.broj_racuna_posiljalac << std::endl;
+        os << "Broj racuna primaoca je : " << transakcija.broj_racuna_primalac << std::endl;
+        os << "Datum transakcije je : " << transakcija.datum_transakcije << std::endl;
+        os << "Primalac je : " << transakcija.Primalac << std::endl;
+        os << "Posiljalac je : " << transakcija.Posiljalac << std::endl;
+        os << "Provizija je : " << transakcija.provizija << std::endl;
+
+        return os;
+    }
 };

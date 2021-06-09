@@ -10,12 +10,30 @@
 #include "TrezerSef.h"
 
 class Osoba {
+
 protected:
+
     Datum datum_rodjenja;
     Adresa adresa_stanovanja;
-    char ime[40];
-    char prezime[40];
+    std::string ime;
+    std::string prezime;
     int broj_godina;
+
+public:
+
+    Datum getDatumRodjenja()const;
+    Adresa getAdresaStanovanja()const;
+    std::string getIme()const;
+    std::string getPrezime()const;
+    int getBrojGodina()const;
+
+    void setDatumRodjenja(Datum datum_rodjenja_);
+    void setAdresaStanovanja(Adresa adresa_stanovanja_);
+    void setIme(std::string ime_);
+    void setPrezime(std::string prezime_);
+    void setBrojGodina(int broj_godina_);
+
+    friend std::ostream& operator<<(std::ostream& os, const Osoba& osoba);
 };
 
 class Korisnik : public Osoba {

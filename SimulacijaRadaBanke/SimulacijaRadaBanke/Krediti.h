@@ -52,5 +52,29 @@ public:
 
 class ZahtevZaKredit{
 
+private:
+
+    TipKredita tip_kredita;
+    double finansije;
+    Datum period;
+    bool odobren;
+
+public:
+
+    ZahtevZaKredit();
+    ZahtevZaKredit(TipKredita tip_kredita_, double finansije_, Datum period_, bool odobren_);
+    ZahtevZaKredit(const ZahtevZaKredit& zahtev);
+
+    TipKredita getTipKredita()const;
+    double getFinansije()const;
+    Datum getPeriod()const;
+    bool getOdobren()const;
+
+    void setTipKredita(TipKredita tip_kredita_);
+    void setFinansije(double finansije_);
+    void setPeriod(Datum period_);
+    void setOdobren(bool odobren_);
+
+    friend std::ostream& operator<<(std::ostream& os, const ZahtevZaKredit& zahtev);
 
 };

@@ -56,3 +56,5 @@ std::ostream& operator<<(std::ostream& os, const Datum& datum) {
         return os;
     }
 }
+
+Datum datum;

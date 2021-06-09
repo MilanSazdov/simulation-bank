@@ -125,3 +125,89 @@ std::ostream& operator<<(std::ostream& os, const Kredit& kredit) {
 
     return os;
 }
+
+ZahtevZaKredit::ZahtevZaKredit() {
+
+    tip_kredita = OSTALO;
+    finansije = 5000;
+    period = Datum();
+    odobren = true;
+}
+
+ZahtevZaKredit::ZahtevZaKredit(TipKredita tip_kredita_, double finansije_, Datum period_, bool odobren_) {
+
+    tip_kredita = tip_kredita_;
+    finansije = finansije_;
+    period = Datum(period_);
+    odobren = odobren_;
+}
+
+ZahtevZaKredit::ZahtevZaKredit(const ZahtevZaKredit& zahtev) {
+
+    tip_kredita = zahtev.tip_kredita;
+    finansije = zahtev.finansije;
+    period = Datum(zahtev.period);
+    odobren = zahtev.odobren;
+}
+
+TipKredita ZahtevZaKredit::getTipKredita()const {
+    
+    return tip_kredita;
+}
+double ZahtevZaKredit::getFinansije()const {
+    return finansije;
+}
+Datum ZahtevZaKredit::getPeriod()const {
+    return period;
+}
+bool ZahtevZaKredit::getOdobren()const {
+    return odobren;
+}
+
+void ZahtevZaKredit::setTipKredita(TipKredita tip_kredita_) {
+    tip_kredita = tip_kredita_;
+}
+void ZahtevZaKredit::setFinansije(double finansije_) {
+    finansije = finansije_;
+}
+void ZahtevZaKredit::setPeriod(Datum period_) {
+    period = Datum(period_);
+}
+void ZahtevZaKredit::setOdobren(bool odobren_) {
+    odobren = odobren_;
+}
+
+std::ostream& operator<<(std::ostream& os, const ZahtevZaKredit& zahtev) {
+
+    os << "Tip kredita je : " << std::endl;
+    
+    switch (zahtev.tip_kredita)
+    {
+    case 0:
+        os << "STAMBENI" << std::endl;
+        break;
+    case 1:
+        os << "ZA_AUTO" << std::endl;
+        break;
+    case 2:
+        os << "ZA DUG" << std::endl;
+        break;
+    case 3:
+        os << "OSTALO" << std::endl;
+        break;
+    }
+
+    os << "Finansije su : " << zahtev.finansije << std::endl;
+    os << "Period je : " << std::endl;
+    os << zahtev.period << std::endl;
+    os << "Da li je zahtev odobren : " << std::endl;
+    if (zahtev.odobren) {
+        os << "DA" << std::endl;
+    }
+    else
+    {
+        os << "NE" << std::endl;
+    }
+
+    return os;
+}

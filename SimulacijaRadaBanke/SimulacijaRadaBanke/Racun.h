@@ -12,13 +12,16 @@ protected:
     Datum datum_nastanka_racuna;
     int broj_racuna;
     bool prekoracenje;
-    std::list<int> id_transakcija;
+    
     double naknada_za_mesecno_odrzavanje_racuna;
     double max_skidanja;
     double max_prekoracenja;
     double max_dodavanja;
 
 public:
+
+    std::list<int> id_transakcija;
+
     virtual void Deposit(double* kes) = 0; // Dodaj na racun
     virtual void Withdraw(double* kes) = 0; // Skini sa racuna
 
