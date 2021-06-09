@@ -21,10 +21,40 @@ protected:
 public:
     virtual void Deposit(double* kes) = 0; // Dodaj na racun
     virtual void Withdraw(double* kes) = 0; // Skini sa racuna
-    virtual void NapraviTransakciju() = 0;
+
+    Datum getDatumNastankaRacuna()const;
+
+    int getBrojRacuna()const;
 
     bool getPrekoracenje()const;
+
     double getMaxPrekoracenje()const;
+
+    std::list<int> getIdTransakcija()const;
+
+    double getNaknadaZaMesecnoOdrzavanjeRacuna() const;
+
+    double getMaxDodavanja()const;
+
+    double getMaxSkidanja()const;
+
+    void setDatumNastankaRacuna(Datum datum);
+
+    void setBrojRacuna(int broj_racuna_);
+
+    void setPrekoracenje(bool prekoracenje_);
+
+    void setMaxPrekoracenje(double max_prekoracenja_);
+
+    void setIdTransakcija(std::list<int> id_transakcija_);
+
+    void setNaknadaZaMesecnoOdrzavanjeRacuna(double naknada_za_mesecno_odrzavanje_racuna_);
+
+    void setMaxDodavanja(double max_dodavanja_);
+
+    void setMaxSkidanja(double max_skidanja_);
+
+
     friend std::ostream& operator<<(std::ostream& os, const Racun& racun);
 };
 

@@ -5,12 +5,73 @@
 
 
 //RACUN
+
+Datum Racun::getDatumNastankaRacuna()const {
+    return datum_nastanka_racuna;
+}
+
+int Racun::getBrojRacuna()const {
+    return broj_racuna;
+}
+
 bool Racun::getPrekoracenje()const {
     return prekoracenje;
 }
+
 double Racun::getMaxPrekoracenje()const {
     return max_prekoracenja;
 }
+
+std::list<int> Racun::getIdTransakcija()const {
+    return id_transakcija;
+}
+
+double Racun::getNaknadaZaMesecnoOdrzavanjeRacuna() const {
+    return naknada_za_mesecno_odrzavanje_racuna;
+}
+
+double Racun::getMaxDodavanja()const {
+    return max_dodavanja;
+}
+
+double Racun::getMaxSkidanja()const {
+    return max_skidanja;
+}
+
+void Racun::setDatumNastankaRacuna(Datum datum) {
+    datum_nastanka_racuna = datum;
+}
+
+void Racun::setBrojRacuna(int broj_racuna_) {
+    broj_racuna = broj_racuna_;
+}
+
+void Racun::setPrekoracenje(bool prekoracenje_) {
+    prekoracenje = prekoracenje_;
+}
+
+void Racun::setMaxPrekoracenje(double max_prekoracenja_) {
+    max_prekoracenja = max_prekoracenja_;
+}
+
+void Racun::setIdTransakcija(std::list<int> id_transakcija_) {
+    id_transakcija = id_transakcija_;
+}
+
+void Racun::setNaknadaZaMesecnoOdrzavanjeRacuna(double naknada_za_mesecno_odrzavanje_racuna_) {
+    naknada_za_mesecno_odrzavanje_racuna = naknada_za_mesecno_odrzavanje_racuna_;
+}
+
+void Racun::setMaxDodavanja(double max_dodavanja_) {
+    max_dodavanja = max_dodavanja_;
+}
+
+
+void Racun::setMaxSkidanja(double max_skidanja_) {
+    max_skidanja = max_skidanja_;
+}
+
+
 std::ostream& operator<<(std::ostream& os, const Racun& racun) {
 
     os << "Datum nastanka racuna : " << std::endl;
@@ -28,8 +89,6 @@ std::ostream& operator<<(std::ostream& os, const Racun& racun) {
 
     os << "Naknada za mesecno odrzavanje : " << racun.naknada_za_mesecno_odrzavanje_racuna << std::endl;
     os << "MAX Depozit : " << racun.max_skidanja << std::endl;
-    os << "Lista transakcija : " << std::endl;
-    // os << racun.lista_tranzakcija << std::endl;
     os << "MAX novca za dodavanje : " << racun.max_dodavanja << std::endl;
 
     return os;
