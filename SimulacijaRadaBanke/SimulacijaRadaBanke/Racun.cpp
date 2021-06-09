@@ -1,6 +1,8 @@
 #include <iostream>
 #include <list>
 #include "Racun.h"
+#include "Kurs.h"
+
 
 //RACUN
 bool Racun::getPrekoracenje()const {

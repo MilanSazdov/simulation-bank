@@ -7,6 +7,7 @@
 #include "Racun.h"
 #include "Krediti.h"
 #include "Kartice.h"
+#include "TrezerSef.h"
 
 class Osoba {
 protected:

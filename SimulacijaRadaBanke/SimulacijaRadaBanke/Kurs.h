@@ -53,3 +53,5 @@ public:
     void PromeniKurs();
     friend std::ostream& operator<<(std::ostream& os, const Kurs& kurs);
 };
+
+extern Kurs kurs;

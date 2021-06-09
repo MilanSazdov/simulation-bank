@@ -3,6 +3,7 @@
 #include "Kartice.h"
 #include "Kurs.h"
 
+
 TipKartice Kartica::getTipKartice()const {
     return tip_kartice;
 }
@@ -110,6 +111,40 @@ void DebitnaKartica::KupiNesto() {
     racun->setStanjeNaRacunuRSD(racun->getStanjeNaRacunuRSD() - pom);
 }
 
+KreditnaKartica::KreditnaKartica() {
+
+    tip_kartice = ZLATNA;
+    broj_kartice = 1;
+    datum_izdavanja.setDan(1);
+    datum_izdavanja.setMesec(1);
+    datum_izdavanja.setGodina(2021);
+    datum_isteka.setDan(1);
+    datum_isteka.setMesec(1);
+    datum_isteka.setGodina(2031);
+    CV = 1;
+    racun = NULL;
+}
+
+KreditnaKartica::KreditnaKartica(TipKartice tip_kartice_, int broj_kartice_, Datum datum_izdavanja_, Datum datum_isteka_, int CV_, DevizniRacun* racun_) {
+
+    tip_kartice = tip_kartice_;
+    broj_kartice = broj_kartice_;
+    datum_izdavanja = datum_izdavanja_;
+    datum_isteka = datum_isteka_;
+    CV = CV_;
+    racun = racun_;
+}
+
+KreditnaKartica::KreditnaKartica(const KreditnaKartica& kreditna_kartica) {
+
+    tip_kartice = kreditna_kartica.tip_kartice;
+    broj_kartice = kreditna_kartica.broj_kartice;
+    datum_izdavanja = kreditna_kartica.datum_izdavanja;
+    datum_isteka = kreditna_kartica.datum_isteka;
+    CV = kreditna_kartica.CV;
+    racun = kreditna_kartica.racun;
+}
+
 
 void KreditnaKartica::KupiNesto() {
 
@@ -168,9 +203,8 @@ void KreditnaKartica::KupiNesto() {
             continue;
         }
 
-        //Prekoracenje treba pretvoriti u EVRO po kusu 
         if (racun->getPrekoracenje()) {
-            if (racun->getStanjeNaRacunuEVRO() * kurs.getRSD_PRODAJNA < pom) {
+            if (racun->getStanjeNaRacunuEVRO() + racun->getMaxPrekoracenje() < pom) {
                 std::cout << "Nemate dovoljno novca na kartici !!! " << std::endl;
                 continue;
             }
@@ -187,6 +221,6 @@ void KreditnaKartica::KupiNesto() {
 
     } while (5);
 
-
+    
     racun->setStanjeNaRacunuEVRO(racun->getStanjeNaRacunuEVRO() - pom);
 }

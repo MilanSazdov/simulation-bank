@@ -4,17 +4,16 @@
 #include <list>
 #include "TrezerSef.h"
 #include "Racun.h"
+#include "Transakcija.h"
 
 
-enum TipValute { EVRO, DOLAR, FRANAK, MARKA, KUNA, LEJI, RSD };
+
+
 class Sef {
 
 private:
 
     int broj_sefa;
-    bool prazan;
-    bool slobodan;
-    bool otkljucan;
     TipValute valuta;
     double kolicina_novca;
     double mesecno_iznajmljivanje;
@@ -28,9 +27,26 @@ public:
 
     bool PlatiMesecnoIznajmljivanje(DinarskiRacun& racun);
 
-    void PlatiMesecnoIznajmljivanje(DevizniRacun& devracun);
+    bool PlatiMesecnoIznajmljivanje(DevizniRacun& devracun);
 
-    void PlatiMesecnoIznajmljivanje(double* kes);
+    bool PlatiMesecnoIznajmljivanje(double* kes);
+
+    Sef();
+    Sef(int broj_sefa_, TipValute valuta_, double kolicina_novca_, double mesecno_iznajmljivanje_, bool placeno_mesecno_iznajmljivanje_);
+    Sef(Sef& sef);
+
+    int getBrojSefa()const;
+    TipValute getValuta()const;
+    double getKolicinaNovca()const;
+    double getMesecnoIznajmljivanje()const;
+    bool getPlacenoMesecnoIznajmljivanje()const;
+    void setBrojSefa(int broj_sefa_);
+    void setValuta(TipValute valuta_);
+    void setKolicinaNovca(double kolicina_novca_);
+    void setMesecnoIznajmljivanje(double mesecno_iznajmljivanje_);
+    void setPlacenoMesecnoIznajmljivanje(bool placeno_mesecno_iznajmljivanje_);
+
+    friend std::ostream& operator<<(std::ostream& os, const Sef& sef);
 };
 
 class Trezor {

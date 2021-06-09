@@ -1,6 +1,7 @@
 #include <iostream>
 #include <list>
 #include "Banka.h"
+#include "Kurs.h"
 
 
 

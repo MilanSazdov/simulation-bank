@@ -144,6 +144,7 @@
     <ClCompile Include="Kartice.cpp" />
     <ClCompile Include="Krediti.cpp" />
     <ClCompile Include="Kurs.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="Osobe.cpp" />
     <ClCompile Include="Racun.cpp" />
     <ClCompile Include="SalterSmena.cpp" />
