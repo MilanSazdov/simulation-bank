@@ -22,7 +22,7 @@ Sef::Sef(int broj_sefa_, TipValute valuta_, double kolicina_novca_, double mesec
     placeno_mesecno_iznajmljivanje = placeno_mesecno_iznajmljivanje_;
 }
 
-Sef::Sef(Sef& sef) {
+Sef::Sef(const Sef& sef) {
 
     broj_sefa = sef.broj_sefa;
     valuta = sef.valuta;

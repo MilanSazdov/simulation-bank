@@ -12,8 +12,6 @@ protected:
     Datum datum_nastanka_racuna;
     int broj_racuna;
     bool prekoracenje;
-    
-    double naknada_za_mesecno_odrzavanje_racuna;
     double max_skidanja;
     double max_prekoracenja;
     double max_dodavanja;
@@ -35,8 +33,6 @@ public:
 
     std::list<int> getIdTransakcija()const;
 
-    double getNaknadaZaMesecnoOdrzavanjeRacuna() const;
-
     double getMaxDodavanja()const;
 
     double getMaxSkidanja()const;
@@ -50,8 +46,6 @@ public:
     void setMaxPrekoracenje(double max_prekoracenja_);
 
     void setIdTransakcija(std::list<int> id_transakcija_);
-
-    void setNaknadaZaMesecnoOdrzavanjeRacuna(double naknada_za_mesecno_odrzavanje_racuna_);
 
     void setMaxDodavanja(double max_dodavanja_);
 
@@ -70,7 +64,7 @@ public:
     static int id;
 
     DinarskiRacun();
-    DinarskiRacun(Datum datum_izdavanja_racuna,bool prekoracenje_, std::list<int> id_transakcija_, double naknada_za_mesecno_odrzavanje_, double max_depozit_, double max_prekoracenje_, double max_dodavanja_, double stanje);
+    DinarskiRacun(Datum datum_izdavanja_racuna,bool prekoracenje_, std::list<int> id_transakcija_, double max_depozit_, double max_prekoracenje_, double max_dodavanja_, double stanje);
     DinarskiRacun(const DinarskiRacun& racun);
 
     double getStanjeNaRacunuRSD()const;
@@ -88,7 +82,7 @@ public:
     static int id;
 
     DevizniRacun();
-    DevizniRacun(Datum datum_izdavanja_racuna, bool prekoracenje_, std::list<int> id_transakcija_, double naknada_za_mesecno_odrzavanje_, double max_depozit_, double max_prekoracenje_, double max_dodavanja_, double stanje);
+    DevizniRacun(Datum datum_izdavanja_racuna, bool prekoracenje_, std::list<int> id_transakcija_, double max_depozit_, double max_prekoracenje_, double max_dodavanja_, double stanje);
     DevizniRacun(const DevizniRacun& racun);
 
     double getStanjeNaRacunuEVRO()const;

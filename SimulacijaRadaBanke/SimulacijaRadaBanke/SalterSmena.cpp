@@ -2,6 +2,71 @@
 #include <list>
 #include "SalterSmena.h"
 
+int RadnikZaSalterom::ID = -1;
+
+RadnikZaSalterom::RadnikZaSalterom(const RadnikZaSalterom& radnik_za_salterom) {
+
+	na_pauzi = radnik_za_salterom.na_pauzi;
+	id = radnik_za_salterom.id;
+
+}
+
+RadnikZaSalterom::RadnikZaSalterom() {
+	
+	ID++;
+	na_pauzi = false;
+	id = ID;
+}
+
+RadnikZaSalterom::RadnikZaSalterom(double mesecna_plata_, Datum datum_rodjenja_, Adresa adresa_stanovanja_, std::string ime_, std::string prezime_, int broj_godina_,bool na_pauzi_) {
+
+	mesecna_plata = mesecna_plata_;
+	datum_rodjenja = Datum(datum_rodjenja_);
+	adresa_stanovanja = Adresa(adresa_stanovanja_);
+	ime = ime_;
+	prezime = prezime_;
+	broj_godina = broj_godina_;
+	ID++;
+	na_pauzi = na_pauzi_;
+	id = ID;
+}
+
+bool RadnikZaSalterom::getNaPauzi()const {
+
+	return na_pauzi;
+}
+int RadnikZaSalterom::getId()const {
+		
+	return id;
+}
+
+void RadnikZaSalterom::setNaPauzi(bool na_pauzi_) {
+	
+	na_pauzi = na_pauzi_;
+}
+
+void RadnikZaSalterom::setId(int id_) {
+
+	id = id_;
+}
+
+std::ostream& operator<<(std::ostream& os, const RadnikZaSalterom& radnik_za_salterom) {
+
+	os << (const Osoba&)radnik_za_salterom;
+	os << "Na pauzi : " << std::endl;
+	if (radnik_za_salterom.na_pauzi) {
+		os << "DA" << std::endl;
+	}
+	else
+	{
+		os << "NE" << std::endl;
+	}
+
+	os << "Id : " << radnik_za_salterom.id << std::endl;
+
+	return os;
+}
+
 Salter::Salter() {
 
 	radnik_za_salterom = RadnikZaSalterom();
@@ -10,7 +75,7 @@ Salter::Salter() {
 }
 
 Salter::Salter(RadnikZaSalterom radnik_za_salterom_, int broj_saltera_, bool zauzet_) {
-	
+
 	radnik_za_salterom = RadnikZaSalterom(radnik_za_salterom);
 	broj_saltera = broj_saltera_;
 	zauzet = zauzet_;
@@ -23,7 +88,7 @@ Salter::Salter(const Salter& salter) {
 	zauzet = salter.zauzet;
 }
 
-RadnikZaSalterom Salter::getRadnikZaSalterom()const {
+RadnikZaSalterom Salter::getRadnikZaSalterom() {
 	return radnik_za_salterom;
 }
 
@@ -49,7 +114,7 @@ void Salter::setZauzet(bool zauzet_) {
 
 
 Smena::Smena() {
-	
+
 	vreme_pocetka = "7:00h";
 	vreme_pocetka_vikendom = "10:00h";
 	vreme_kraja = "17:00h";

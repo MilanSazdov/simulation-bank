@@ -34,7 +34,6 @@ Transakcija::Transakcija(TipValute tip_valute_, double kolicina_novca_, int broj
 
 Transakcija::Transakcija(const Transakcija& transakcija) {
 
-    ID_transakcije++;
     tip_valute = transakcija.tip_valute;
     kolicina_novca = transakcija.kolicina_novca;
     broj_racuna_posiljalac = transakcija.broj_racuna_posiljalac;

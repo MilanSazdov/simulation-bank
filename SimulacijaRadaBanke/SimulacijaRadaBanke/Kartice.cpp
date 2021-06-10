@@ -64,7 +64,7 @@ DebitnaKartica::DebitnaKartica(TipKartice tip_kartice_, int broj_kartice_, Datum
     datum_izdavanja = datum_izdavanja_;
     datum_isteka = datum_isteka_;
     CV = CV_;
-    *racun = *racun_;
+    racun = racun_;
 }
 
 DebitnaKartica::DebitnaKartica(const DebitnaKartica& debitna_kartica) {
@@ -102,14 +102,14 @@ void DebitnaKartica::KupiNesto() {
         if (racun->getPrekoracenje()) {
             if (racun->getMaxPrekoracenje() + racun->getStanjeNaRacunuRSD() < pom) {
                 std::cout << "Nemate dovoljno novca na kartici !!! " << std::endl;
-                continue;
+                return;
             }
         }
         else
         {
             if (racun->getStanjeNaRacunuRSD() < pom) {
                 std::cout << "Nemate dovoljno novca na kartici !!! " << std::endl;
-                continue;
+                return;
             }
         }
 
@@ -223,14 +223,14 @@ void KreditnaKartica::KupiNesto() {
         if (racun->getPrekoracenje()) {
             if (racun->getStanjeNaRacunuEVRO() + racun->getMaxPrekoracenje() < pom) {
                 std::cout << "Nemate dovoljno novca na kartici !!! " << std::endl;
-                continue;
+                return;
             }
         }
         else
         {
             if (racun->getStanjeNaRacunuEVRO() < pom) {
                 std::cout << "Nemate dovoljno novca na kartici !!! " << std::endl;
-                continue;
+                return;
             }
         }
 

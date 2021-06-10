@@ -33,7 +33,7 @@ public:
 
     Sef();
     Sef(int broj_sefa_, TipValute valuta_, double kolicina_novca_, double mesecno_iznajmljivanje_, bool placeno_mesecno_iznajmljivanje_);
-    Sef(Sef& sef);
+    Sef(const Sef& sef);
 
     int getBrojSefa()const;
     TipValute getValuta()const;

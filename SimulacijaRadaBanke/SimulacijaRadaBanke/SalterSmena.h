@@ -3,6 +3,29 @@
 #include <list>
 #include "Osobe.h"
 
+class RadnikZaSalterom : public Osoba {
+
+private:
+
+    bool na_pauzi;
+    int id;
+
+public:
+
+    static int ID;
+
+    RadnikZaSalterom(const RadnikZaSalterom&);
+    RadnikZaSalterom();
+    RadnikZaSalterom(double mesecna_plata_, Datum datum_rodjenja_, Adresa adresa_stanovanja, std::string ime_, std::string prezime_, int broj_godina_, bool na_pauzi_);
+
+    bool getNaPauzi()const;
+    int getId()const;
+
+    void setNaPauzi(bool na_pauzi_);
+    void setId(int id_);
+
+    friend std::ostream& operator<<(std::ostream& os, const RadnikZaSalterom& radnik_za_salterom);
+};
 class Salter {
 
 private:
@@ -17,7 +40,7 @@ public:
     Salter(RadnikZaSalterom radnik_za_salterom, int broj_saltera_, bool zauzet_);
     Salter(const Salter& salter);
 
-    RadnikZaSalterom getRadnikZaSalterom()const;
+    RadnikZaSalterom getRadnikZaSalterom();
     int getBrojSaltera()const;
     bool getZauzet()const;
 
@@ -28,7 +51,7 @@ public:
     friend std::ostream& operator<<(std::ostream& os, const Salter& salter) {
 
         os << "Radnik za salterom : " << std::endl;
-       // os << salter.radnik_za_salterom << std::endl;
+        // os << salter.radnik_za_salterom << std::endl;
         os << "Broj saltera je : " << salter.broj_saltera << std::endl;
         os << "Zauzet : ";
         if (salter.zauzet) {
@@ -44,7 +67,7 @@ public:
 
 };
 
-class Smena{
+class Smena {
 
 private:
 

@@ -211,3 +211,4 @@ std::ostream& operator<<(std::ostream& os, const ZahtevZaKredit& zahtev) {
 
     return os;
 }
+

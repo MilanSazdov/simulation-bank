@@ -1,7 +1,9 @@
+#pragma warning( disable : 4996)
 #include <iostream>
 #include <list>
 #include "Racun.h"
 #include "Kurs.h"
+#include "Banka.h"
 
 
 //RACUN
@@ -24,10 +26,6 @@ double Racun::getMaxPrekoracenje()const {
 
 std::list<int> Racun::getIdTransakcija()const {
     return id_transakcija;
-}
-
-double Racun::getNaknadaZaMesecnoOdrzavanjeRacuna() const {
-    return naknada_za_mesecno_odrzavanje_racuna;
 }
 
 double Racun::getMaxDodavanja()const {
@@ -58,9 +56,6 @@ void Racun::setIdTransakcija(std::list<int> id_transakcija_) {
     id_transakcija = id_transakcija_;
 }
 
-void Racun::setNaknadaZaMesecnoOdrzavanjeRacuna(double naknada_za_mesecno_odrzavanje_racuna_) {
-    naknada_za_mesecno_odrzavanje_racuna = naknada_za_mesecno_odrzavanje_racuna_;
-}
 
 void Racun::setMaxDodavanja(double max_dodavanja_) {
     max_dodavanja = max_dodavanja_;
@@ -86,8 +81,6 @@ std::ostream& operator<<(std::ostream& os, const Racun& racun) {
     {
         os << "NE" << std::endl;
     }
-
-    os << "Naknada za mesecno odrzavanje : " << racun.naknada_za_mesecno_odrzavanje_racuna << std::endl;
     os << "MAX Depozit : " << racun.max_skidanja << std::endl;
     os << "MAX novca za dodavanje : " << racun.max_dodavanja << std::endl;
 
@@ -102,21 +95,19 @@ DinarskiRacun::DinarskiRacun() {
     datum_nastanka_racuna = Datum(datum);
     broj_racuna = id;
     prekoracenje = false;
-    naknada_za_mesecno_odrzavanje_racuna = 2000;
     max_skidanja = 5000;
     max_prekoracenja = 0;
     max_dodavanja = 5000;
     stanje_na_racunu_RSD = 0;
 }
 
-DinarskiRacun::DinarskiRacun(Datum datum_izdavanja_racuna,  bool prekoracenje_, std::list<int> id_transakcija_, double naknada_za_mesecno_odrzavanje_, double max_depozit_, double max_prekoracenje_, double max_dodavanja_, double stanje) {
+DinarskiRacun::DinarskiRacun(Datum datum_izdavanja_racuna,  bool prekoracenje_, std::list<int> id_transakcija_, double max_depozit_, double max_prekoracenje_, double max_dodavanja_, double stanje) {
 
     id++;
     datum_nastanka_racuna = datum_izdavanja_racuna;
     broj_racuna = id;
     prekoracenje = prekoracenje_;
     id_transakcija = id_transakcija_;
-    naknada_za_mesecno_odrzavanje_racuna = naknada_za_mesecno_odrzavanje_;
     max_skidanja = max_depozit_;
     max_prekoracenja = max_prekoracenje_;
     max_dodavanja = max_dodavanja_;
@@ -130,7 +121,6 @@ DinarskiRacun::DinarskiRacun(const DinarskiRacun& racun) {
     broj_racuna = id;
     prekoracenje = racun.prekoracenje;
     id_transakcija = racun.id_transakcija;
-    naknada_za_mesecno_odrzavanje_racuna = racun.naknada_za_mesecno_odrzavanje_racuna;
     max_skidanja = racun.max_skidanja;
     max_prekoracenja = racun.max_prekoracenja;
     max_dodavanja = racun.max_dodavanja;
@@ -229,21 +219,19 @@ DevizniRacun::DevizniRacun() {
     datum_nastanka_racuna = Datum(datum);
     broj_racuna = id;
     prekoracenje = false;
-    naknada_za_mesecno_odrzavanje_racuna = 2000;
     max_skidanja = 5000;
     max_prekoracenja = 0;
     max_dodavanja = 5000;
     stanje_na_racunu_EVRO = 0;
 }
 
-DevizniRacun::DevizniRacun(Datum datum_izdavanja_racuna, bool prekoracenje_, std::list<int> id_transakcija_, double naknada_za_mesecno_odrzavanje_, double max_depozit_, double max_prekoracenje_, double max_dodavanja_, double stanje) {
+DevizniRacun::DevizniRacun(Datum datum_izdavanja_racuna, bool prekoracenje_, std::list<int> id_transakcija_,double max_depozit_, double max_prekoracenje_, double max_dodavanja_, double stanje) {
 
     id++;
     datum_nastanka_racuna = datum_izdavanja_racuna;
     broj_racuna = id;
     prekoracenje = prekoracenje_;
     id_transakcija = id_transakcija_;
-    naknada_za_mesecno_odrzavanje_racuna = naknada_za_mesecno_odrzavanje_;
     max_skidanja = max_depozit_;
     max_prekoracenja = max_prekoracenje_;
     max_dodavanja = max_dodavanja_;
@@ -257,7 +245,6 @@ DevizniRacun::DevizniRacun(const DevizniRacun& racun) {
     broj_racuna = id;
     prekoracenje = racun.prekoracenje;
     id_transakcija = racun.id_transakcija;
-    naknada_za_mesecno_odrzavanje_racuna = racun.naknada_za_mesecno_odrzavanje_racuna;
     max_skidanja = racun.max_skidanja;
     max_prekoracenja = racun.max_prekoracenja;
     max_dodavanja = racun.max_dodavanja;
@@ -358,3 +345,113 @@ std::ostream& operator<<(std::ostream& os, const DevizniRacun& racun) {
     return os;
 }
 int DevizniRacun::id = -1;
+
+void CitajDevRacune(std::list<DevizniRacun> lista) {
+    FILE* dat = fopen("devizni.txt", "r");
+    if (dat == NULL) {
+        printf("Greska pri citanju!\n");
+        exit;
+    }
+    int d;
+    int m;
+    int g;
+    int broj_racuna;
+    bool prekoracenje;
+    double max_skidanja;
+    double max_prekoracenja;
+    double max_dodavanja;
+    while (5) {
+        fscanf(dat, "%i", &d);
+        fgetc(dat);
+        if (feof(dat)) {
+            break;
+        }
+        fscanf(dat, "%i", &m);
+        fgetc(dat);
+        fscanf(dat, "%i", &g);
+        fgetc(dat);
+        fscanf(dat, "%i", &broj_racuna);
+        fgetc(dat);
+        fscanf(dat, "%i", &prekoracenje);
+        fgetc(dat);
+        fscanf(dat, "%i", &max_skidanja);
+        fgetc(dat);
+        fscanf(dat, "%i", &max_prekoracenja);
+        fgetc(dat);
+        fscanf(dat, "%i", &max_dodavanja);
+        fgetc(dat);
+
+        char pom[100];
+        std::list<int> id_transakcija;
+        while (5) {
+            fscanf(dat, "%[^\n]s", pom);
+            fgetc(dat);
+            if (pom == "!") {
+                break;
+            }
+            id_transakcija.push_back(atoi(pom));
+        }
+        double stanje_na_racunu_EVRO;
+        fscanf(dat, "%i", &stanje_na_racunu_EVRO);
+        fgetc(dat);
+        lista.push_back(DevizniRacun(Datum(d, m, g), prekoracenje, id_transakcija, max_dodavanja, max_prekoracenja, max_dodavanja, stanje_na_racunu_EVRO));
+    }
+}
+void CitajDinRacune(std::list<DinarskiRacun> lista) {
+    FILE* dat = fopen("dinarski.txt", "r");
+    if (dat == NULL) {
+        printf("Greska pri citanju!\n");
+        exit;
+    }
+    int d;
+    int m;
+    int g;
+    int broj_racuna;
+    bool prekoracenje;
+    double max_skidanja;
+    double max_prekoracenja;
+    double max_dodavanja;
+    while (5) {
+        fscanf(dat, "%i", &d);
+        fgetc(dat);
+        if (feof(dat)) {
+            break;
+        }
+        fscanf(dat, "%i", &m);
+        fgetc(dat);
+        fscanf(dat, "%i", &g);
+        fgetc(dat);
+        fscanf(dat, "%i", &broj_racuna);
+        fgetc(dat);
+        fscanf(dat, "%i", &prekoracenje);
+        fgetc(dat);
+        fscanf(dat, "%lf", &max_skidanja);
+        fgetc(dat);
+        fscanf(dat, "%lf", &max_prekoracenja);
+        fgetc(dat);
+        fscanf(dat, "%lf", &max_dodavanja);
+        fgetc(dat);
+
+        char pom[100];
+        std::list<int> id_transakcija;
+        while (5) {
+            fscanf(dat, "%[^\n]s", pom);
+            fgetc(dat);
+            if (pom == "!") {
+                break;
+            }
+            id_transakcija.push_back(atoi(pom));
+        }
+        double stanje_na_racunu_EVRO;
+        fscanf(dat, "%i", &stanje_na_racunu_EVRO);
+        fgetc(dat);
+        lista.push_back(DinarskiRacun(Datum(d, m, g), prekoracenje, id_transakcija, max_dodavanja, max_prekoracenja, max_dodavanja, stanje_na_racunu_EVRO));
+    }
+}
+void CitajRac() {
+    CitajDevRacune(banka.lista_dev_racuna);
+    CitajDinRacune(banka.lista_din_racuna);
+}
+void IspisiDevRac() {
+
+}
