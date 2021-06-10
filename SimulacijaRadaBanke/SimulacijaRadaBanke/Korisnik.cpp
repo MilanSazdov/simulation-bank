@@ -1,5 +1,6 @@
 #include "Korisnik.h";
 
+int Korisnik::ID = -1;
 
 Korisnik::Korisnik() {
 
